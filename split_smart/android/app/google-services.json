@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "253511987949",
+    "project_id": "splitsmartauth",
+    "storage_bucket": "splitsmartauth.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:253511987949:android:4e19d504ad9f18589092e4",
+        "android_client_info": {
+          "package_name": "com.example.split_smart"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "253511987949-vkoujq54uf42l5dltu6t4ajvk419ea12.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.split_smart",
+            "certificate_hash": "ace52cf828de87284d8a1eac3dfd146bea84d9c4"
+          }
+        },
+        {
+          "client_id": "253511987949-i2tv4lcau90lf30bp5371272jktd1r9v.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCdmThUtTIctFf21IwBnj9_mMS67KmfZuQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "253511987949-i2tv4lcau90lf30bp5371272jktd1r9v.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
