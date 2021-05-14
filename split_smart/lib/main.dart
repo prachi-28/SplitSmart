@@ -6,7 +6,6 @@ import 'package:provider/provider.dart';
 import 'package:split_smart/models/user.dart';
 
 
-
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp();
