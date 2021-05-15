@@ -1,8 +1,10 @@
 // page shown after log in
 import 'package:flutter/material.dart';
+import 'package:hexcolor/hexcolor.dart';
 import 'package:split_smart/services/auth.dart';
 import 'package:split_smart/friends/friends_page.dart';
 import 'package:split_smart/groups/groups_page.dart';
+//import 'package:split_smart/services/main.dart';
 
 class Home extends StatelessWidget {
 
@@ -22,13 +24,14 @@ class _Home_StatefulState extends State<Home_Stateful> {
   final AuthService _auth = AuthService();
   int _currentIndex = 0;
   final List<Widget> _children = [Friends(), Groups(), ];
+  final List<IconData> _floatingIcon = [Icons.person_add, Icons.group_add];
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.grey,
+      //backgroundColor: Colors.grey,
       appBar: AppBar(
-        backgroundColor: Colors.blueGrey,
+        //backgroundColor: Colors.blueGrey,
         elevation: 0.0,
         title: Text('Welcome'),
         actions: [
@@ -42,6 +45,12 @@ class _Home_StatefulState extends State<Home_Stateful> {
         ],
       ),
       body: _children[_currentIndex],
+      floatingActionButton: FloatingActionButton(
+        onPressed: () {
+          // Add your onPressed code here!
+        },
+        child: Icon(_floatingIcon[_currentIndex]),
+      ),
       bottomNavigationBar: BottomNavigationBar(
         onTap: onTabTapped,
         currentIndex: _currentIndex, // this will be set when a new tab is tapped

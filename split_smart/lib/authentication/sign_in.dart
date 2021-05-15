@@ -21,9 +21,9 @@ class _SignInState extends State<SignIn> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.grey,
+      //backgroundColor: Colors.grey,
       appBar: AppBar(
-        backgroundColor: Colors.blueGrey,
+        //backgroundColor: Colors.blueGrey,
         elevation: 0.0,
         title: Text('Sign in to SplitSmart'),
         actions: [
@@ -71,7 +71,7 @@ class _SignInState extends State<SignIn> {
               SizedBox(height: 7,),
 
               RaisedButton(
-                  color: Colors.blueGrey,
+                  //color: Colors.blueGrey,
                   child: Text('Sign in', style: TextStyle(color: Colors.white),),
                   onPressed: () async {
                     if(_formKey.currentState.validate()){

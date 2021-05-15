@@ -21,9 +21,9 @@ class _RegisterState extends State<Register> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.grey,
+      //backgroundColor: Colors.grey,
       appBar: AppBar(
-        backgroundColor: Colors.blueGrey[400],
+        //backgroundColor: Colors.blueGrey[400],
         elevation: 0.0,
         title: Text('Sign up to SplitSmart'),
         actions: [
@@ -71,7 +71,7 @@ class _RegisterState extends State<Register> {
               SizedBox(height: 20,),
 
               RaisedButton(
-                color: Colors.blueGrey,
+                //color: Colors.blueGrey,
                 child: Text('Register', style: TextStyle(color: Colors.white),),
                 onPressed: () async {
 

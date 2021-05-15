@@ -32,6 +32,8 @@ dependencies:
   firebase_auth: ^0.18.0+1
 
   provider: ^5.0.0
+  percent_indicator: ^2.1.7+2
+  hexcolor: ^2.0.3
 
 
 
