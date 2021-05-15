@@ -9,7 +9,7 @@ class _FriendsState extends State<Friends> {
   @override
   Widget build(BuildContext context) {
     return Container(
-      color: Colors.redAccent,
+      color: Colors.red,
     );
   }
 }
