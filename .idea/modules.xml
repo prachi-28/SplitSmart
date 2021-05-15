@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/SplitSmart.iml" filepath="$PROJECT_DIR$/SplitSmart.iml" />
+      <module fileurl="file://$PROJECT_DIR$/split_smart/android/app/src/debug/debug.iml" filepath="$PROJECT_DIR$/split_smart/android/app/src/debug/debug.iml" />
+      <module fileurl="file://$PROJECT_DIR$/split_smart/android/app/src/profile/profile.iml" filepath="$PROJECT_DIR$/split_smart/android/app/src/profile/profile.iml" />
+      <module fileurl="file://$PROJECT_DIR$/split_smart/split_smart.iml" filepath="$PROJECT_DIR$/split_smart/split_smart.iml" />
+    </modules>
+  </component>
+</project>
