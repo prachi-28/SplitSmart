@@ -34,6 +34,9 @@ dependencies:
   provider: ^5.0.0
   percent_indicator: ^2.1.7+2
   hexcolor: ^2.0.3
+  flutter_svg: ^0.19.1
+  google_sign_in: ^4.5.9
+
 
 
 
