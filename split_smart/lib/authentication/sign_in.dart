@@ -42,7 +42,7 @@ class _SignInState extends State<SignIn> {
                 child: Center(
                   child: Container(
                     width: 200,
-                    height: 150,
+                    height: 110,
                     child: Image.asset('images/login.jpg'),
                   ),
                 ),
@@ -65,7 +65,7 @@ class _SignInState extends State<SignIn> {
                   },
                 ),
               ),
-              SizedBox(height: 20,),
+              SizedBox(height: 10,),
               Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 15),
 
@@ -88,7 +88,8 @@ class _SignInState extends State<SignIn> {
                 ),
               ),
 
-              SizedBox(height: 20,), SizedBox(
+              //SizedBox(height: 8,),
+              SizedBox(
                 width: 300,
                 child: ElevatedButton(
                   style: ElevatedButton.styleFrom(
@@ -150,7 +151,7 @@ class _SignInState extends State<SignIn> {
 
 
 
-              SizedBox(height: 20,),
+              SizedBox(height: 5,),
               Text(
                 error,
                 style: TextStyle(color: Colors.red, fontSize: 14.0),
