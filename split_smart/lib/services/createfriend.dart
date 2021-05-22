@@ -46,7 +46,4 @@ class CreateFriendService {
     });
     print("Sub Collection Created");
   }
-
-
-
 }
