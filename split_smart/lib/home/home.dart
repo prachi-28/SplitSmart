@@ -4,7 +4,7 @@ import 'package:hexcolor/hexcolor.dart';
 import 'package:split_smart/services/auth.dart';
 import 'package:split_smart/friends/friends_page.dart';
 import 'package:split_smart/groups/groups_page.dart';
-//import 'package:split_smart/services/main.dart';
+import 'package:split_smart/friends/add_friend.dart';
 
 class Home extends StatelessWidget {
 
@@ -48,6 +48,14 @@ class _Home_StatefulState extends State<Home_Stateful> {
       body: _children[_currentIndex],
       floatingActionButton: FloatingActionButton(
         onPressed: () {
+          setState(() {
+            if (_currentIndex == 0) {
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => AddFriends()),
+              );
+            }
+          });
           // Add your onPressed code here!
         },
         child: Icon(_floatingIcon[_currentIndex]),

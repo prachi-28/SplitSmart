@@ -14,6 +14,10 @@ void main() async {
 
 class MyApp extends StatelessWidget {
 
+  /*String _darkColour = "#0F1D2E";
+  String _lightColour = "#E7DDC7";
+  String _contrastColour = "#893091";*/
+
   String _darkColour = "#ce5a6f";
   String _lightColour = "#f3dee7";
   String _contrastColour = "#4d0766";
@@ -48,7 +52,7 @@ class MyApp extends StatelessWidget {
             )
           ),
           floatingActionButtonTheme: FloatingActionButtonThemeData(
-            backgroundColor: HexColor(_darkColour),
+            backgroundColor: HexColor(_contrastColour),
             foregroundColor: HexColor(_lightColour),
           ),
         ),

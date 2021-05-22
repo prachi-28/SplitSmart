@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:split_smart/services/auth.dart';
+import 'package:split_smart/services/createuser.dart';
 
 class Register extends StatefulWidget {
   final Function toggleView;
@@ -13,7 +14,9 @@ class _RegisterState extends State<Register> {
 
   final AuthService _auth = AuthService();
   final _formKey = GlobalKey<FormState>();
+  final CreateUserService _newUser = CreateUserService();
 
+  String username="";
   String email="";
   String password="";
   String error="";
@@ -50,6 +53,22 @@ class _RegisterState extends State<Register> {
                 child: TextFormField(
                   decoration: InputDecoration(
                     border: OutlineInputBorder(),
+                    labelText: 'Name',
+                    //hintText: 'Enter a valid email id',
+                  ),
+                  onChanged: (val) {
+                    setState(() {
+                      username=val;
+                    });
+                  },
+                ),
+              ),
+              SizedBox(height: 20,),
+              Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 15),
+                child: TextFormField(
+                  decoration: InputDecoration(
+                    border: OutlineInputBorder(),
                     labelText: 'Email',
                     //hintText: 'Enter a valid email id',
                   ),
@@ -78,8 +97,6 @@ class _RegisterState extends State<Register> {
                     setState(() {
                       password=val;
                     });
-
-
                   },
                 ),
               ),
@@ -108,11 +125,11 @@ class _RegisterState extends State<Register> {
                           error="Please supply a valid email";
                         });
                       }
-
+                      else {
+                        _newUser.addUser(email, username, 0, 0);
+                      }
                     }
-
                   },
-
                 ),
               ),
               SizedBox(height: 20,),
@@ -120,7 +137,6 @@ class _RegisterState extends State<Register> {
                 error,
                 style: TextStyle(color: Colors.red, fontSize: 14.0),
               ),
-
               SizedBox(height: 60,),
               ElevatedButton(
 
@@ -137,7 +153,6 @@ class _RegisterState extends State<Register> {
                     color: Colors.black,
                   ),
                 ),
-
               ),
             ],
           ),

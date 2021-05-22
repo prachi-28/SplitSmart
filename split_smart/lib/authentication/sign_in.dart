@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:split_smart/services/auth.dart';
-
+import 'package:split_smart/models/user.dart';
 
 class SignIn extends StatefulWidget {
   final Function toggleView;
@@ -82,8 +82,6 @@ class _SignInState extends State<SignIn> {
                     setState(() {
                       password=val;
                     });
-
-
                   },
                 ),
               ),
@@ -111,7 +109,6 @@ class _SignInState extends State<SignIn> {
                           error="Could not sign in with those credentials";
                         });
                       }
-
                     }
                   },
 
