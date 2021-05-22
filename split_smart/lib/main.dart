@@ -55,6 +55,12 @@ class MyApp extends StatelessWidget {
             backgroundColor: HexColor(_contrastColour),
             foregroundColor: HexColor(_lightColour),
           ),
+          elevatedButtonTheme: ElevatedButtonThemeData(
+            style: ElevatedButton.styleFrom(
+              primary: HexColor(_darkColour),
+              onPrimary: HexColor(_lightColour),
+            ),
+          ),
         ),
         home: Wrapper(),
       ),

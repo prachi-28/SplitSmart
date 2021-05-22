@@ -24,9 +24,12 @@ class _AddFriendsState extends State<AddFriends> {
       ),
       body: Container(
       padding: EdgeInsets.symmetric(vertical: 0, horizontal: 40),
-      child: Column(children: [
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.start,
+        crossAxisAlignment: CrossAxisAlignment.center,
+        children: <Widget>[
         Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 15),
+          padding: EdgeInsets.only(top: 16, left: 16, right: 16),
           child: TextFormField(
             decoration: InputDecoration(
               border: OutlineInputBorder(),
