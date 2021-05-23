@@ -4,6 +4,7 @@ import 'package:hexcolor/hexcolor.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:split_smart/services/createfriend.dart';
 import 'package:split_smart/home/home.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 
 class AddFriends extends StatefulWidget {
   @override
@@ -14,6 +15,11 @@ class _AddFriendsState extends State<AddFriends> {
 
   String findEmail;
   final CreateFriendService _createFriendService = CreateFriendService();
+
+  // to find the current user's email
+  /*final FirebaseAuth auth = FirebaseAuth.instance;
+  User user = FirebaseAuth.instance.currentUser;
+  String currUser;*/
 
   @override
   Widget build(BuildContext context) {
@@ -60,6 +66,8 @@ class _AddFriendsState extends State<AddFriends> {
             ),
             onPressed: () {
                 _createFriendService.findUser(findEmail);
+                _createFriendService.twoWayAdd(findEmail);
+
               }
           ),
         ),
