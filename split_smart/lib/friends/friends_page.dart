@@ -21,77 +21,79 @@ class _FriendsState extends State<Friends> {
   @override
   Widget build(BuildContext context) {
     return Center(
-      //color: Colors.red,
-      child: Column(
-          mainAxisAlignment: MainAxisAlignment.start,
-          crossAxisAlignment: CrossAxisAlignment.center,
-          children: <Widget>[
+      //color: Colors.red
+      child: Expanded(
+        child: Column(
+            mainAxisAlignment: MainAxisAlignment.start,
+            crossAxisAlignment: CrossAxisAlignment.center,
+            children: <Widget>[
 
-            Padding(
-              padding: EdgeInsets.only(top: 16, left: 16, right: 16),
-              child: Opacity(
-                opacity: 0.5,
-                child: TextField(
-                  decoration: InputDecoration(
-                    hintText: "Search...",
-                    hintStyle: TextStyle(color: Colors.grey.shade600),
-                    prefixIcon: Icon(
-                      Icons.search,
-                      color: Colors.grey.shade600,
-                      size: 20,
+              Padding(
+                padding: EdgeInsets.only(top: 16, left: 16, right: 16),
+                child: Opacity(
+                  opacity: 0.5,
+                  child: TextField(
+                    decoration: InputDecoration(
+                      hintText: "Search...",
+                      hintStyle: TextStyle(color: Colors.grey.shade600),
+                      prefixIcon: Icon(
+                        Icons.search,
+                        color: Colors.grey.shade600,
+                        size: 20,
+                      ),
+                      filled: true,
+                      fillColor: Colors.grey.shade100,
+                      contentPadding: EdgeInsets.all(8),
+                      enabledBorder: OutlineInputBorder(
+                          borderRadius: BorderRadius.circular(20),
+                          borderSide: BorderSide(color: Colors.grey.shade100)),
                     ),
-                    filled: true,
-                    fillColor: Colors.grey.shade100,
-                    contentPadding: EdgeInsets.all(8),
-                    enabledBorder: OutlineInputBorder(
-                        borderRadius: BorderRadius.circular(20),
-                        borderSide: BorderSide(color: Colors.grey.shade100)),
                   ),
                 ),
               ),
-            ),
-            Padding(
-              padding: EdgeInsets.all(20.0),
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                crossAxisAlignment: CrossAxisAlignment.center,
-                children: [
-                  Container(
+              Padding(
+                padding: EdgeInsets.all(20.0),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  children: [
+                    Container(
+                        height: 75,
+                        width:
+                            (MediaQuery.of(context).size.width - 60) * _percent,
+                        decoration: BoxDecoration(
+                          color: HexColor("#56B43C"), //green
+                          borderRadius: BorderRadius.circular(10.0),
+                        ),
+                        child: Center(
+                          child: Text(_owed.toString()),
+                        )),
+                    Container(
                       height: 75,
-                      width:
-                          (MediaQuery.of(context).size.width - 60) * _percent,
+                      width: 10,
+                    ),
+                    Container(
+                      height: 75,
+                      width: (MediaQuery.of(context).size.width - 60) *
+                          (1 - _percent),
                       decoration: BoxDecoration(
-                        color: HexColor("#56B43C"), //green
+                        color: HexColor("#B52B45"), //red
                         borderRadius: BorderRadius.circular(10.0),
                       ),
                       child: Center(
-                        child: Text(_owed.toString()),
-                      )),
-                  Container(
-                    height: 75,
-                    width: 10,
-                  ),
-                  Container(
-                    height: 75,
-                    width: (MediaQuery.of(context).size.width - 60) *
-                        (1 - _percent),
-                    decoration: BoxDecoration(
-                      color: HexColor("#B52B45"), //red
-                      borderRadius: BorderRadius.circular(10.0),
+                        child: Text(_owe.toString()),
+                      ),
                     ),
-                    child: Center(
-                      child: Text(_owe.toString()),
-                    ),
-                  ),
-                ],
+                  ],
+                ),
               ),
-            ),
-            Padding(
-              padding: EdgeInsets.all(20.0),
-              //TODO: add readFriends() here
-              child: _read.readFriends(),
-              ),
-          ]),
+              Padding(
+                padding: EdgeInsets.all(20.0),
+                //TODO: add readFriends() here
+                child: _read.readFriends(),
+                ),
+            ]),
+      ),
     );
   }
 

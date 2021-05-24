@@ -45,6 +45,7 @@ dependencies:
   hexcolor: ^2.0.3
   flutter_svg: ^0.19.1
   google_sign_in: ^4.5.9
+  fluttertoast: ^8.0.7
 
 
 

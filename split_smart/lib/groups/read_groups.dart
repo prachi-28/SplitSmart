@@ -8,50 +8,23 @@ import 'package:split_smart/services/auth.dart';
 //import 'package:split_smart/services/auth.dart;
 import 'package:split_smart/groups/make_group.dart';
 
-class ReadUsersClass {
-  ReadUsersClass();
+class ReadGroupsClass {
+  ReadGroupsClass();
   final FirebaseFirestore _firestore = FirebaseFirestore.instance;
 
   String docID = "random@gmail.com";
   //TODO: set to current email ID
 
   final Stream<QuerySnapshot> _usersStream =
-      FirebaseFirestore.instance.collection('users').snapshots();
+  FirebaseFirestore.instance.collection('users').snapshots();
 
   CollectionReference users = FirebaseFirestore.instance.collection('users');
 
-  StreamBuilder readUser() {
-    return StreamBuilder<QuerySnapshot>(
-      stream: _usersStream,
-      builder: (BuildContext context, AsyncSnapshot<QuerySnapshot> snapshot) {
-        if (snapshot.hasError) {
-          return Text('Something went wrong');
-        }
-
-        if (snapshot.connectionState == ConnectionState.waiting) {
-          return Text("Loading");
-        }
-        return Container(
-          height: 200,
-          width: 300,
-          child: ListView(
-            children: snapshot.data.docs.map((DocumentSnapshot document) {
-              return new ListTile(
-                title: new Text(document.data()['name']),
-                subtitle: new Text(document.data()['email']),
-              );
-            }).toList(),
-          ),
-        );
-      },
-    );
-  }
-
-  StreamBuilder readFriends() {
+  StreamBuilder readGroups() {
     Stream<QuerySnapshot> _friendsStream = FirebaseFirestore.instance
         .collection('users')
         .doc(docID)
-        .collection('friends')
+        .collection('groups')
         .snapshots();
 
     return StreamBuilder<QuerySnapshot>(
@@ -64,14 +37,18 @@ class ReadUsersClass {
         if (snapshot.connectionState == ConnectionState.waiting) {
           return Text("Loading");
         }
+
+        if (snapshot.data.docs.length == 0) {
+          return Text("No Groups");
+        }
         return Container(
           height: 200,
           width: 500,
           child: ListView(
             children: snapshot.data.docs.map((DocumentSnapshot document) {
               return new ListTile(
-                title: new Text(document.data()['fname']),
-                subtitle: new Text(document.data()['femail']),
+                title: new Text(document.data()['groupName']),
+                subtitle: new Text('Owed: ${document.data()['totalOwed']}   |   You Owe: ${document.data()['totalOwes']}'),
               );
             }).toList(),
           ),
@@ -79,5 +56,7 @@ class ReadUsersClass {
       },
     );
   }
+
+
 
 }

@@ -33,7 +33,9 @@ class CreateFriendService {
 
   Future createFriendSubCollection(String docID, String fEmail, String fName) async {
     //adds friends sub collection to the new user
+    print("HELLO");
     int fOwes = 0, fOwed = 0;
+
     FirebaseFirestore
         .instance
         .collection('users')
@@ -44,6 +46,6 @@ class CreateFriendService {
       'femail': fEmail, 'fname': fName, 'fowes'
           : fOwes, 'fowed': fOwed
     });
-    print("Sub Collection Created");
+    print("Sub Collection Created2");
   }
 }
