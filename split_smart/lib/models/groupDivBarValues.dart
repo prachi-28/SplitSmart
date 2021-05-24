@@ -6,16 +6,16 @@ class GroupDivBarValuesClass {
 
   void setOwes(double owes) {
     _owes = owes;
-    print(owes);
+    //print(owes);
   }
 
   void setOwed(double owed) {
     _owed = owed;
   }
 
-  void onTransactionUpdate(int owe, int owed) {
-      _owes = owe.toDouble() + _owes;
-      _owed = owed.toDouble() + _owed;
+  void onTransactionUpdate(double owe, double owed) {
+      _owes = owe + _owes;
+      _owed = owed + _owed;
       if (_owes == 0 && _owed == 0) {
         _percent = 0;
       }

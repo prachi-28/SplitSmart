@@ -9,6 +9,9 @@ import 'package:split_smart/services/auth.dart';
 import 'package:split_smart/groups/make_group.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import '../models/groupDivBarValues.dart';
+import 'package:split_smart/groups/Transaction_Or_Settle_Page.dart';
+import 'package:split_smart/groups/GroupData.dart';
+
 
 class ReadGroupsClass {
 
@@ -19,10 +22,9 @@ class ReadGroupsClass {
   final FirebaseAuth auth = FirebaseAuth.instance;
   User user = FirebaseAuth.instance.currentUser;
 
-  final Stream<QuerySnapshot> _usersStream =
-  FirebaseFirestore.instance.collection('users').snapshots();
-
   CollectionReference users = FirebaseFirestore.instance.collection('users');
+
+  GroupData _groupData = new GroupData();
 
   StreamBuilder readGroups() {
     String docID = user.email;
@@ -53,14 +55,16 @@ class ReadGroupsClass {
             children: snapshot.data.docs.map((DocumentSnapshot document) {
               return new ListTile(
                 onTap: () {
-                  /*Navigator.push(
+                  _groupData.setGroupName(document.data()['groupName']);
+                  print("HELLO!");
+                  Navigator.push(
                     context,
                     MaterialPageRoute(
-                        builder: (context) => addTransactionFriend(email: document.data()['groupName'])
+                        builder: (context) => GroupMiddlePage()
                     ),
-                  );*/
-                  int owes = (document.data()['totalOwes'] as num);
-                  int owed = (document.data()['totalOwed'] as num);
+                  );
+                  double owes = (document.data()['totalOwes']);
+                  double owed = (document.data()['totalOwed']);
                   calcOwe();
                 },
                 title: new Text(document.data()['groupName']),
@@ -78,7 +82,7 @@ class ReadGroupsClass {
     String docID = user.email;
 
     double owes = 0, owed = 0;
-    int temp;
+    double temp;
     users
         .doc(docID)
         .collection('groups')
@@ -86,10 +90,10 @@ class ReadGroupsClass {
         .then((QuerySnapshot querySnapshot) {
       querySnapshot.docs.forEach((doc) {
         print(doc['groupName']);
-        temp = doc['totalOwes'] as num;
-        owes = temp.toDouble() + owes;
-        temp = doc['totalOwed'] as num;
-        owed = temp.toDouble() + owed;
+        temp = doc['totalOwes'];
+        owes = temp + owes;
+        temp = doc['totalOwed'];
+        owed = temp + owed;
       });
     });
     _valuesClass.setOwes(owes);

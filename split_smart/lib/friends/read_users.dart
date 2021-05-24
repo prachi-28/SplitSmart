@@ -38,7 +38,6 @@ class ReadUsersClass {
         return Container(
           height: 500,
           width: 500,
-          //color: Colors.blue,
           child: ListView(
             children: snapshot.data.docs.map((DocumentSnapshot document) {
               return new ListTile(

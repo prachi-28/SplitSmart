@@ -91,7 +91,7 @@ class _ChooseFriendsClassState extends State<ChooseFriendsClass> {
           //color: Colors.blue,
           child: Scrollbar(
             child: ListView.builder(
-              //padding: EdgeInsets.all(5.0),
+              //padding: EdgeInsets.all(7.0),
               itemCount: snapshot.data.docs.length,
               itemBuilder: (context, index) => buildItem(index, context, snapshot.data.docs[index], snapshot.data.docs.length),
             ),
@@ -108,6 +108,7 @@ class _ChooseFriendsClassState extends State<ChooseFriendsClass> {
     else {
       print("HELLO");
       return Container(
+        //padding: EdgeInsets.all(2.0),
         decoration: new BoxDecoration(
           border: new Border.all(width: 0, color: Colors.transparent),
           //color is transparent so that it does not blend with the actual color specified
@@ -134,9 +135,10 @@ class _ChooseFriendsClassState extends State<ChooseFriendsClass> {
                   child: Column(
                     children: <Widget>[
                       Container(
+                        padding: EdgeInsets.only(top:2.0),
                         child: Text(
                           '${doc.data()['fname']}',
-                          style: TextStyle(color: Colors.black54,
+                          style: TextStyle(color: Colors.black87,
                               fontSize: 17.0),
                         ),
                         alignment: Alignment.centerLeft,

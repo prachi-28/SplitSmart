@@ -25,8 +25,6 @@ class _FriendsState extends State<Friends> {
             mainAxisAlignment: MainAxisAlignment.start,
             crossAxisAlignment: CrossAxisAlignment.center,
             children: <Widget>[
-
-
               Padding(
                 padding: EdgeInsets.only(top: 16, left: 16, right: 16),
                 child: Opacity(
@@ -58,7 +56,7 @@ class _FriendsState extends State<Friends> {
                   )
               ),
               Padding(
-                padding: EdgeInsets.all(20.0),
+                padding: EdgeInsets.only(left: 20.0, top: 0.0, right: 20.0, bottom: 15.0),
                 child: _read.readFriends(),
                 ),
             ]),

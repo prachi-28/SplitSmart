@@ -24,7 +24,7 @@ class _FDivisionBarClassState extends State<FDivisionBarClass> {
   Widget build(BuildContext context) {
     if (_valuesClass.getOwed()==0 && _valuesClass.getOwes()==0 || _valuesClass.getPercent()==0.0) {
       return Container(
-        padding: EdgeInsets.only(left: 20.0, top: 25.0, right: 20, bottom: 20.0),
+        padding: EdgeInsets.only(left: 20.0, top: 25.0, right: 20),
         height: 75,
         width: (MediaQuery.of(context).size.width - 60),
         decoration: BoxDecoration(

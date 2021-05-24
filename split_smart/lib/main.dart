@@ -1,3 +1,4 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:split_smart/services/auth.dart';
 import 'package:split_smart/wrapper.dart';
@@ -6,7 +7,6 @@ import 'package:provider/provider.dart';
 import 'package:split_smart/models/user.dart';
 import 'package:hexcolor/hexcolor.dart';
 
-
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp();
@@ -14,14 +14,18 @@ void main() async {
 }
 
 class MyApp extends StatelessWidget {
-
   /*String _darkColour = "#0F1D2E";
-  String _lightColour = "#E7DDC7";
-  String _contrastColour = "#893091";*/
+  String _lightColour = "#E7DDC7";*/
+  String _contrastColour = "#917A97";
 
-  String _darkColour = "#ce5a6f";
+  String _darkColour = "#282829";
+  String _lightColour = "#E7DDC7";
+  //String _contrastColour = "#e880ff";
+  //String _contrastColour = "#893091";
+
+  /*String _darkColour = "#ce5a6f";
   String _lightColour = "#f3dee7";
-  String _contrastColour = "#4d0766";
+  String _contrastColour = "#4d0766";*/
 
   @override
   Widget build(BuildContext context) {
@@ -44,13 +48,26 @@ class MyApp extends StatelessWidget {
             buttonColor: HexColor(_darkColour),
             textTheme: ButtonTextTheme.accent,
           ),
-          textTheme: TextTheme(
+          /*textTheme: TextTheme(
             button: TextStyle(
-              color: HexColor(_lightColour),
+              color: HexColor(_darkColour),
             ),
             body1: TextStyle(
               color: HexColor(_lightColour),
+            ),
+            body2: TextStyle(
+              color: HexColor(_lightColour),
+            ),
+            title: TextStyle(
+              color: HexColor(_darkColour),
+            ),
+            subtitle: TextStyle(
+              color: HexColor(_darkColour),
             )
+          ),*/
+          textTheme: Theme.of(context).textTheme.apply(
+            bodyColor: HexColor(_darkColour),
+            displayColor: HexColor(_darkColour),
           ),
           floatingActionButtonTheme: FloatingActionButtonThemeData(
             backgroundColor: HexColor(_contrastColour),
@@ -68,7 +85,7 @@ class MyApp extends StatelessWidget {
             ),
           ),
           checkboxTheme: CheckboxThemeData(
-            fillColor: MaterialStateProperty.all(HexColor(_darkColour)),
+            fillColor: MaterialStateProperty.all(HexColor(_contrastColour)),
           ),
         ),
         home: Wrapper(),
