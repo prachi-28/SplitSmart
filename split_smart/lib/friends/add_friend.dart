@@ -5,6 +5,7 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:split_smart/services/createfriend.dart';
 import 'package:split_smart/home/home.dart';
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:fluttertoast/fluttertoast.dart';
 
 class AddFriends extends StatefulWidget {
   @override
@@ -15,6 +16,11 @@ class _AddFriendsState extends State<AddFriends> {
 
   String findEmail;
   final CreateFriendService _createFriendService = CreateFriendService();
+
+  final resetText = TextEditingController();
+  void clearText() {
+    resetText.clear();
+  }
 
   // to find the current user's email
   /*final FirebaseAuth auth = FirebaseAuth.instance;
@@ -48,6 +54,7 @@ class _AddFriendsState extends State<AddFriends> {
                 findEmail = val;
               });
             },
+            controller: resetText,
           ),
         ),
         SizedBox(height: 20,),
@@ -67,7 +74,16 @@ class _AddFriendsState extends State<AddFriends> {
             onPressed: () {
                 _createFriendService.findUser(findEmail);
                 _createFriendService.twoWayAdd(findEmail);
-
+                clearText();
+                Fluttertoast.showToast(
+                    msg: "Friend Added",
+                    toastLength: Toast.LENGTH_SHORT,
+                    gravity: ToastGravity.CENTER,
+                    timeInSecForIosWeb: 1,
+                    backgroundColor: Colors.black12,
+                    textColor: Colors.white,
+                    fontSize: 16.0
+                );
               }
           ),
         ),

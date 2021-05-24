@@ -62,6 +62,14 @@ class MyApp extends StatelessWidget {
               onPrimary: HexColor(_lightColour),
             ),
           ),
+          inputDecorationTheme: InputDecorationTheme(
+            focusedBorder: OutlineInputBorder(
+              borderSide: BorderSide(color: HexColor(_darkColour), width: 1.5),
+            ),
+          ),
+          checkboxTheme: CheckboxThemeData(
+            fillColor: MaterialStateProperty.all(HexColor(_darkColour)),
+          ),
         ),
         home: Wrapper(),
       ),

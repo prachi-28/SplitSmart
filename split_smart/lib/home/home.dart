@@ -5,7 +5,11 @@ import 'package:split_smart/services/auth.dart';
 import 'package:split_smart/friends/friends_page.dart';
 import 'package:split_smart/groups/groups_page.dart';
 import 'package:split_smart/friends/add_friend.dart';
+
 import 'package:split_smart/profile/userProfile.dart';
+
+import 'package:split_smart/groups/make_group.dart';
+
 
 class Home extends StatelessWidget {
 
@@ -33,7 +37,7 @@ class _Home_StatefulState extends State<Home_Stateful> {
       //backgroundColor: Colors.grey,
 
       /*appBar: AppBar(
-        //backgroundColor: Colors.blueGrey,
+        //;backgroundColor: Colors.blueGrey,
         elevation: 0.0,
         title: Text('Welcome'),
 
@@ -48,9 +52,17 @@ class _Home_StatefulState extends State<Home_Stateful> {
                 MaterialPageRoute(builder: (context) => AddFriends()),
               );
             }
-            else if(_currentIndex == 2) {
 
-                 _auth.signOut();
+            else if(_currentIndex == 2) {
+              _auth.signOut();
+            }
+
+            else if (_currentIndex ==1) {
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => MakeGroup()),
+              );
+
             }
           });
           // Add your onPressed code here!
