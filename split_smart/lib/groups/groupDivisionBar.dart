@@ -20,9 +20,16 @@ class _DivisionBarClassState extends State<DivisionBarClass> {
   double _owed=_valuesClass.getOwed();
   double _owe=0;*/
 
+  void initState() {
+    _valuesClass.setOwesOwed();
+    //_valuesClass.setPercent();
+    print("PERCENT");
+    print(_valuesClass.getPercent());
+  }
+
   @override
   Widget build(BuildContext context) {
-    if (_valuesClass.getOwed()==0 && _valuesClass.getOwes()==0 || _valuesClass.getPercent()==0.0) {
+    if (_valuesClass.getOwed()==0 && _valuesClass.getOwes()==0) {
       return Container(
         padding: EdgeInsets.only(left: 20.0, top: 25.0, right: 20, bottom: 20.0),
         height: 75,
@@ -33,6 +40,42 @@ class _DivisionBarClassState extends State<DivisionBarClass> {
         ),
         child: Text(
             "No Pending Transactions!",
+          textAlign: TextAlign.center,
+          style: TextStyle(
+            fontSize: 20.0,
+          ),
+        ),
+      );
+    }
+    else if (_valuesClass.getOwed()!=0 && _valuesClass.getOwes()==0) {
+      return Container(
+        padding: EdgeInsets.only(left: 20.0, top: 25.0, right: 20, bottom: 20.0),
+        height: 75,
+        width: (MediaQuery.of(context).size.width - 60),
+        decoration: BoxDecoration(
+          color: HexColor("#56B43C"), //green
+          borderRadius: BorderRadius.circular(10.0),
+        ),
+        child: Text(
+          "${_valuesClass.getOwed()}",
+          textAlign: TextAlign.center,
+          style: TextStyle(
+            fontSize: 20.0,
+          ),
+        ),
+      );
+    }
+    else if (_valuesClass.getOwed()==0 && _valuesClass.getOwes()!=0) {
+      return Container(
+        padding: EdgeInsets.only(left: 20.0, top: 25.0, right: 20, bottom: 20.0),
+        height: 75,
+        width: (MediaQuery.of(context).size.width - 60),
+        decoration: BoxDecoration(
+          color: HexColor("#B52B45"), //red
+          borderRadius: BorderRadius.circular(10.0),
+        ),
+        child: Text(
+          "${_valuesClass.getOwes()}",
           textAlign: TextAlign.center,
           style: TextStyle(
             fontSize: 20.0,

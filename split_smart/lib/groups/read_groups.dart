@@ -56,16 +56,16 @@ class ReadGroupsClass {
               return new ListTile(
                 onTap: () {
                   _groupData.setGroupName(document.data()['groupName']);
-                  print("HELLO!");
+                  //print("HELLO!");
                   Navigator.push(
                     context,
                     MaterialPageRoute(
                         builder: (context) => GroupMiddlePage()
                     ),
                   );
-                  double owes = (document.data()['totalOwes']);
-                  double owed = (document.data()['totalOwed']);
-                  calcOwe();
+                  //double owes = (document.data()['totalOwes']);
+                  //double owed = (document.data()['totalOwed']);
+                  //calcOwe();
                 },
                 title: new Text(document.data()['groupName']),
                 subtitle: new Text('Owed: ${document.data()['totalOwed']}   |   You Owe: ${document.data()['totalOwes']}'),

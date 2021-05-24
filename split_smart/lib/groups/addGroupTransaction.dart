@@ -11,10 +11,12 @@ import 'package:firebase_auth/firebase_auth.dart';
 import '../models/groupDivBarValues.dart';
 import 'package:split_smart/groups/GroupData.dart';
 import 'package:fluttertoast/fluttertoast.dart';
+import 'package:split_smart/groups/updateGroup.dart';
 
 final FirebaseAuth auth = FirebaseAuth.instance;
 User user = FirebaseAuth.instance.currentUser;
 GroupData _groupData = new GroupData();
+UpdateGroupClass _updateGroupClass = new UpdateGroupClass();
 
 class AddGroupTransactionClass extends StatefulWidget {
   @override
@@ -298,7 +300,7 @@ class _AddGroupTransactionClassState extends State<AddGroupTransactionClass> {
                       for (int i=0 ; i<_groupData.returnEmail().length ; i++) {
                         Sum = Sum + _amountPerson[i];
                       }
-                      setState(() {
+                      //setState(() {
                         if (Sum != _amountPaid) {
                           flag = false;
                           Fluttertoast.showToast(
@@ -313,43 +315,20 @@ class _AddGroupTransactionClassState extends State<AddGroupTransactionClass> {
                         }
                         else {
                           flag = true;
+                           _updateGroupClass.updateAllGroups(_amountPerson, _amountPaid);
+                           print("ADDED!!");
+                          Fluttertoast.showToast(
+                              msg: "Transaction Added!",
+                              toastLength: Toast.LENGTH_SHORT,
+                              gravity: ToastGravity.CENTER,
+                              timeInSecForIosWeb: 1,
+                              backgroundColor: Colors.black12,
+                              textColor: Colors.white,
+                              fontSize: 16.0
+                          );
                         }
                         print(flag);
-                      });
-
-                      //print(desc.text);
-                      //print(amount.text);
-                      //:: TODO a function to update owes and owed -> updateUser.dart
-                      /*amt=double.parse(amount.text);
-                      if(_selectedEmail==user.email)
-                      {
-                        flag=true;
-                      }
-                      else
-                      {
-                        flag=false;
-                      }
-
-                      if(flag)
-                      {
-                        _update.updateAmount(user.email,test, amt);
-                      }
-                      else
-                      {
-                        _update.updateAmount(test,user.email, amt);
-                      }
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                          //:: TODO send friend's email id here
-                            builder: (context) => settleUp(email: test)
-                        ),
-                      );*/
-
-
-
-                      //print(widget.email);
-                      //print(_selectedEmail);
+                      //});
                     },
                   ),
                 ),
