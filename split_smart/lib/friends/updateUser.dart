@@ -16,23 +16,29 @@ class updateUserAmount{
   updateAmount(String paidByEmail, String oweEmail, double amount)
   {
 
-    String docID = paidByEmail;
-    int fOwed = (amount/2).toInt();
-    FirebaseFirestore
-        .instance
-        .collection('users')
-        .doc(docID)
-        .update({"owed":fOwed}
-        );
-    print("Update successful");
 
-    docID = oweEmail;
+    String docID = paidByEmail;
+
     int fOwes = (amount/2).toInt();
     FirebaseFirestore
         .instance
         .collection('users')
         .doc(docID)
-        .update({"owes":fOwes}
+        .collection('friends')
+        .doc(oweEmail)
+        .update({"fowes":fOwes}
+        );
+    print("Update successful");
+
+    docID = oweEmail;
+    int fOwed = (amount/2).toInt();
+    FirebaseFirestore
+        .instance
+        .collection('users')
+        .doc(docID)
+        .collection('friends')
+        .doc(paidByEmail)
+        .update({"fowed":fOwed}
     );
     print("Update successful");
 
