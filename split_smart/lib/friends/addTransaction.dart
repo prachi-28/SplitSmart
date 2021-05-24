@@ -1,17 +1,21 @@
 
 import 'package:split_smart/friends/settleUpPage.dart';
 import 'package:split_smart/friends/updateUser.dart';
+import 'package:split_smart/home/home.dart';
 import 'package:split_smart/main.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'friends_page.dart';
 import 'package:split_smart/services/auth.dart';
 import 'package:firebase_auth/firebase_auth.dart';
+import 'getFriendEmail.dart';
 
 
 // to access current user email
 final FirebaseAuth auth = FirebaseAuth.instance;
 User user = FirebaseAuth.instance.currentUser;
+getFriendEmail _getEmail = getFriendEmail();
+
 
 
 class addTransactionFriend extends StatefulWidget {
@@ -25,14 +29,14 @@ class addTransactionFriend extends StatefulWidget {
 class _addTransactionFriendState extends State<addTransactionFriend> {
 
 
-
   final desc = TextEditingController();
   final amount = TextEditingController();
   double amt;
 
   //:: TODO include friend's email in the list _emails
-  String test="shivu@gmail.com";
-  List<String> _emails = [user.email,"shivu@gmail.com"];
+  //String femail="shivu@gmail.com";
+  String femail =  _getEmail.getEmail();
+  List<String> _emails = [user.email,_getEmail.getEmail()];
   String _selectedEmail;
 
 
@@ -43,6 +47,7 @@ class _addTransactionFriendState extends State<addTransactionFriend> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      resizeToAvoidBottomInset: false,
       appBar: AppBar(
         title: Text("Add Transaction"),
       ),
@@ -72,13 +77,13 @@ class _addTransactionFriendState extends State<addTransactionFriend> {
                 '${widget.email}',
                 style: TextStyle(
                   color: Colors.black,
-                  fontSize: 22.0,
+                  fontSize: 24.0,
                 ),
               ),
             ),
           ),
 
-             SizedBox(height: 20,),
+             SizedBox(height: 30,),
 
              Align(
                alignment: Alignment.center,
@@ -90,10 +95,10 @@ class _addTransactionFriendState extends State<addTransactionFriend> {
                     _selectedEmail = newValue;
                   });
                 },
-                items: _emails.map((location) {
+                items: _emails.map((e) {
                   return DropdownMenuItem(
-                    child: new Text(location),
-                    value: location,
+                    child: new Text(e),
+                    value: e,
                   );
                 }).toList(),
             ),
@@ -180,24 +185,26 @@ class _addTransactionFriendState extends State<addTransactionFriend> {
 
                       if(flag)
                         {
-                          _update.updateAmount(user.email,test, amt);
+                          _update.updateAmount(user.email,femail, amt);
                         }
                       else
                         {
-                          _update.updateAmount(test,user.email, amt);
+                          _update.updateAmount(femail,user.email, amt);
                         }
-                      Navigator.push(
+
+                      showDialog(
+                        context: context,
+                        builder: (_) => FunkyOverlay(),
+                      );
+                      /*Navigator.push(
                         context,
                         MaterialPageRoute(
                           //:: TODO send friend's email id here
-                            builder: (context) => settleUp(email: test)
+                            builder: (context) => settleUp(email: femail)
+
                         ),
-                      );
+                      );*/
 
-
-
-                      //print(widget.email);
-                      //print(_selectedEmail);
                     },
 
                   ),
@@ -212,6 +219,78 @@ class _addTransactionFriendState extends State<addTransactionFriend> {
     );
   }
 }
+
+class FunkyOverlay extends StatefulWidget {
+  @override
+  State<StatefulWidget> createState() => FunkyOverlayState();
+}
+
+class FunkyOverlayState extends State<FunkyOverlay>
+    with SingleTickerProviderStateMixin {
+  AnimationController controller;
+  Animation<double> scaleAnimation;
+
+  @override
+  void initState() {
+    super.initState();
+
+    controller =
+        AnimationController(vsync: this, duration: Duration(milliseconds: 450));
+    scaleAnimation =
+        CurvedAnimation(parent: controller, curve: Curves.elasticInOut);
+
+    controller.addListener(() {
+      setState(() {});
+    });
+
+    controller.forward();
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return Center(
+      child: Material(
+        color: Colors.transparent,
+        child: ScaleTransition(
+          scale: scaleAnimation,
+          child: Container(
+            decoration: ShapeDecoration(
+                color: Colors.white,
+                shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(15.0)
+                ),
+            ),
+            child: Padding(
+              padding: const EdgeInsets.all(50.0),
+              child: ElevatedButton(
+                onPressed: () {
+                  _navigateToNextScreen(context);
+                },
+                style: ElevatedButton.styleFrom(
+                  primary: Colors.white,
+                  shadowColor: Colors.white,
+                  elevation: 0,
+                ),
+                child: Text(
+                  'Transaction Added!',
+                    style: TextStyle(
+                    color: Colors.black
+                ),
+
+                ),
+              )
+            ),
+          ),
+        ),
+      ),
+    );
+  }
+  void _navigateToNextScreen(BuildContext context) {
+    Navigator.of(context).push(MaterialPageRoute(builder: (context) => Home()));
+  }
+}
+
+
 
 
 

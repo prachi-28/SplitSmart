@@ -7,15 +7,17 @@ import 'package:split_smart/models/user.dart';
 import 'package:split_smart/services/auth.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'addTransaction.dart';
+import 'getFriendEmail.dart';
 
 class ReadUsersClass {
 
   ReadUsersClass();
-  //final FirebaseFirestore _firestore = FirebaseFirestore.instance;
-  //TODO: set to current email ID
+
   final FirebaseAuth auth = FirebaseAuth.instance;
   User user = FirebaseAuth.instance.currentUser;
   //String docID = "random@gmail.com";
+
+  getFriendEmail _getEmail = getFriendEmail();
 
 
 
@@ -74,15 +76,17 @@ class ReadUsersClass {
             children: snapshot.data.docs.map((DocumentSnapshot document) {
               return new ListTile(
                 onTap: () {
+                  _getEmail.setEmail(document.data()['femail']);
                   Navigator.push(
                     context,
                     MaterialPageRoute(
                         builder: (context) => addTransactionFriend(email: document.data()['femail'])
                     ),
                   );
+
                 },
                 title: new Text(document.data()['fname']),
-                subtitle: new Text(document.data()['femail']),
+                subtitle: new Text('Owed: ${document.data()['fowed'].toString()} | Owes: ${document.data()['fowes'].toString()}')
               );
             }).toList(),
           ),
@@ -90,4 +94,8 @@ class ReadUsersClass {
       },
     );
   }
+
+
+
+
 }

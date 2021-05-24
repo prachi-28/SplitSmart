@@ -27,7 +27,7 @@ class _FriendsState extends State<Friends> {
             children: <Widget>[
 
 
-              Padding(
+              /*Padding(
                 padding: EdgeInsets.only(top: 16, left: 16, right: 16),
                 child: Opacity(
                   opacity: 0.5,
@@ -49,7 +49,7 @@ class _FriendsState extends State<Friends> {
                     ),
                   ),
                 ),
-              ),
+              ),*/
               Padding(
                   padding: EdgeInsets.all(20.0),
                   child: Container(

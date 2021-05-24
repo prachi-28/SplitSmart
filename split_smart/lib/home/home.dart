@@ -5,9 +5,7 @@ import 'package:split_smart/services/auth.dart';
 import 'package:split_smart/friends/friends_page.dart';
 import 'package:split_smart/groups/groups_page.dart';
 import 'package:split_smart/friends/add_friend.dart';
-
 import 'package:split_smart/profile/userProfile.dart';
-
 import 'package:split_smart/groups/make_group.dart';
 
 
