@@ -37,7 +37,7 @@ class _RegisterState extends State<Register> {
           key: _formKey,
           child: Column(
             children: [
-              Padding(
+              /*Padding(
                 padding: EdgeInsets.only(top: 50.0),
                 child: Center(
                   child: Container(
@@ -46,7 +46,7 @@ class _RegisterState extends State<Register> {
                     child: Image.asset('images/home.jpg'),
                   ),
                 ),
-              ),
+              ),*/
               SizedBox(height: 20,),
               Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 15),
