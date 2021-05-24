@@ -1,7 +1,6 @@
 class GroupData{
 
   String docID = "random@gmail.com";
-
   static int num = 20;
   static List<bool> inputs = new List<bool>();
   static List<String> selEmail = new List<String>();

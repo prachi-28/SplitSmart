@@ -36,8 +36,9 @@ class ReadUsersClass {
           return Text("Loading");
         }
         return Container(
-          height: 200,
-          width: 300,
+          height: 500,
+          width: 500,
+          //color: Colors.blue,
           child: ListView(
             children: snapshot.data.docs.map((DocumentSnapshot document) {
               return new ListTile(
@@ -67,7 +68,7 @@ class ReadUsersClass {
           return Text("Loading");
         }
         return Container(
-          height: 200,
+          height: 400,
           width: 500,
           child: ListView(
             children: snapshot.data.docs.map((DocumentSnapshot document) {

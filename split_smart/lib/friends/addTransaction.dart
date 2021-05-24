@@ -152,7 +152,6 @@ class _addTransactionFriendState extends State<addTransactionFriend> {
                       print(_selectedEmail);
                     },
 
-
                   ),
               ),
 

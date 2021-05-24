@@ -8,6 +8,7 @@ import 'package:split_smart/services/auth.dart';
 //import 'package:split_smart/services/auth.dart;
 import 'package:split_smart/groups/GroupData.dart';
 import 'package:hexcolor/hexcolor.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 
 
 class ChooseFriendsClass extends StatefulWidget {
@@ -19,6 +20,9 @@ class ChooseFriendsClass extends StatefulWidget {
 class _ChooseFriendsClassState extends State<ChooseFriendsClass> {
 
   GroupData _groupData = new GroupData();
+
+  final FirebaseAuth auth = FirebaseAuth.instance;
+  User user = FirebaseAuth.instance.currentUser;
 
   List<String> tempEmail = new List<String>();
   List<bool> tempInputs = new List<bool>();
@@ -43,9 +47,6 @@ class _ChooseFriendsClassState extends State<ChooseFriendsClass> {
 
   final FirebaseFirestore _firestore = FirebaseFirestore.instance;
 
-  String docID = "random@gmail.com";
-  //TODO: set to current email ID
-
   final Stream<QuerySnapshot> _usersStream =
   FirebaseFirestore.instance.collection('users').snapshots();
 
@@ -59,17 +60,25 @@ class _ChooseFriendsClassState extends State<ChooseFriendsClass> {
   }
 
   StreamBuilder readFriends() {
+
+    String docID = user.email;
+
     Stream<QuerySnapshot> _friendsStream = FirebaseFirestore.instance
         .collection('users')
         .doc(docID)
         .collection('friends')
-        .limit(20)
         .snapshots();
 
     return StreamBuilder<QuerySnapshot>(
-
       stream: _friendsStream,
       builder: (BuildContext context, AsyncSnapshot<QuerySnapshot> snapshot) {
+
+        if (!snapshot.hasData) {
+          return Container(
+            child: Text("No Friends"),
+          );
+        }
+
         _groupData.setNum(snapshot.data.docs.length);
         tempEmail.clear();
         for (int i=0 ; i<_groupData.returnNum() ; i++) {

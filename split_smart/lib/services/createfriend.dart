@@ -14,7 +14,6 @@ class CreateFriendService {
 
 
   final FirebaseFirestore _firestore = FirebaseFirestore.instance;
-  //TODO: set DocID to current email ID
 
   final FirebaseAuth auth = FirebaseAuth.instance;
   User user = FirebaseAuth.instance.currentUser;

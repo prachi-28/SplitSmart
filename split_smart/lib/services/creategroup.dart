@@ -4,14 +4,14 @@ import 'package:firebase_core/firebase_core.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:split_smart/models/user.dart';
 import 'package:split_smart/services/auth.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 
 class CreateGroupService {
 
   CreateGroupService();
   final FirebaseFirestore _firestore = FirebaseFirestore.instance;
-  //TODO: set DocID to current email ID
-  String docID = "random@gmail.com";
-  String docName = "HELLO";
+  final FirebaseAuth auth = FirebaseAuth.instance;
+  User user = FirebaseAuth.instance.currentUser;
 
   Future createGroupCollection(String groupName, String userID) async {
     FirebaseFirestore
@@ -22,13 +22,13 @@ class CreateGroupService {
         .doc(groupName)
         .set({
       'groupName': groupName,
-      'totalOwed': 0,
-      'totalOwes': 0,
+      'totalOwed': 0.0,
+      'totalOwes': 0.0,
     });
   }
 
   void allMemberInfo(String groupName, List<String> emails) {
-
+    String docID = user.email;
     emails.add(docID);
     print(emails);
 
