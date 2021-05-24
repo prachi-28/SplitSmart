@@ -2,6 +2,13 @@
   <library name="Dart Packages" type="DartPackagesLibraryType">
     <properties>
       <option name="packageNameToDirsMap">
+        <entry key="angles">
+          <value>
+            <list>
+              <option value="F:/AndroidApp/flutter/.pub-cache/hosted/pub.dartlang.org/angles-2.1.0/lib" />
+            </list>
+          </value>
+        </entry>
         <entry key="async">
           <value>
             <list>
@@ -404,6 +411,7 @@
       </option>
     </properties>
     <CLASSES>
+      <root url="file://F:/AndroidApp/flutter/.pub-cache/hosted/pub.dartlang.org/angles-2.1.0/lib" />
       <root url="file://F:/AndroidApp/flutter/.pub-cache/hosted/pub.dartlang.org/async-2.6.1/lib" />
       <root url="file://F:/AndroidApp/flutter/.pub-cache/hosted/pub.dartlang.org/boolean_selector-2.1.0/lib" />
       <root url="file://F:/AndroidApp/flutter/.pub-cache/hosted/pub.dartlang.org/characters-1.1.0/lib" />

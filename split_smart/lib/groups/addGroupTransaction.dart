@@ -65,6 +65,7 @@ class _AddGroupTransactionClassState extends State<AddGroupTransactionClass> {
       }
       _radioValue = value;
 
+
       switch (_radioValue) {
         case 0:
           print("EQUAL");
