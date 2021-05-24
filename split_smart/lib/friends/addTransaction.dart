@@ -1,4 +1,6 @@
 
+import 'package:split_smart/friends/settleUpPage.dart';
+import 'package:split_smart/friends/updateUser.dart';
 import 'package:split_smart/main.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -29,8 +31,13 @@ class _addTransactionFriendState extends State<addTransactionFriend> {
   double amt;
 
   //:: TODO include friend's email in the list _emails
-  List<String> _emails = [user.email,"test"];
+  String test="shivu@gmail.com";
+  List<String> _emails = [user.email,"shivu@gmail.com"];
   String _selectedEmail;
+
+
+  updateUserAmount _update = updateUserAmount();
+  bool flag;
 
 
   @override
@@ -47,15 +54,31 @@ class _addTransactionFriendState extends State<addTransactionFriend> {
         children: <Widget>[
             Padding(
               padding: const EdgeInsets.symmetric(vertical: 30, horizontal: 20),
-              child: Text(
-                  'Splitting with ${widget.email}',
-                  style: TextStyle(
-                      color: Colors.black,
-                      fontSize: 18.0,
+              child: Center(
+                child: Text(
+                    'Splitting with',
+                    style: TextStyle(
+                        color: Colors.black,
+                        fontSize: 18.0,
+                    ),
                   ),
-                ),
+              ),
             ),
 
+          Padding(
+            padding: const EdgeInsets.symmetric(vertical: 0, horizontal: 20),
+            child: Center(
+              child: Text(
+                '${widget.email}',
+                style: TextStyle(
+                  color: Colors.black,
+                  fontSize: 22.0,
+                ),
+              ),
+            ),
+          ),
+
+             SizedBox(height: 20,),
 
              Align(
                alignment: Alignment.center,
@@ -133,9 +156,7 @@ class _addTransactionFriendState extends State<addTransactionFriend> {
 
               Center(
                 child: ElevatedButton(
-                    style: ElevatedButton.styleFrom(
-                      primary: Colors.pink,
-                    ),
+
                      child: Text(
                       'Done',
                       style: TextStyle(
@@ -148,8 +169,35 @@ class _addTransactionFriendState extends State<addTransactionFriend> {
                       //print(amount.text);
                       //:: TODO a function to update owes and owed -> updateUser.dart
                       amt=double.parse(amount.text);
-                      print(widget.email);
-                      print(_selectedEmail);
+                      if(_selectedEmail==user.email)
+                        {
+                          flag=true;
+                        }
+                      else
+                        {
+                          flag=false;
+                        }
+
+                      if(flag)
+                        {
+                          _update.updateAmount(user.email,test, amt);
+                        }
+                      else
+                        {
+                          _update.updateAmount(test,user.email, amt);
+                        }
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          //:: TODO send friend's email id here
+                            builder: (context) => settleUp(email: test)
+                        ),
+                      );
+
+
+
+                      //print(widget.email);
+                      //print(_selectedEmail);
                     },
 
 

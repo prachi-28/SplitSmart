@@ -90,9 +90,7 @@ class _SignInState extends State<SignIn> {
               SizedBox(
                 width: 300,
                 child: ElevatedButton(
-                  style: ElevatedButton.styleFrom(
-                    primary: Colors.pink,
-                  ),
+
 
 
                   child: Text(

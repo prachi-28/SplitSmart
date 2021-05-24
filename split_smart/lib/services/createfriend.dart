@@ -5,6 +5,7 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:split_smart/models/user.dart';
 import 'package:split_smart/services/auth.dart';
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:fluttertoast/fluttertoast.dart';
 
 
 class CreateFriendService {
@@ -55,7 +56,9 @@ class CreateFriendService {
           : fOwes, 'fowed': fOwed
     });
     print("Sub Collection Created");
+
   }
+
 
   findUser(String searchValue) {
     //print(_docID.getEmail());
@@ -85,8 +88,6 @@ class CreateFriendService {
         .instance
         .collection('users')
         .doc(docID)
-        .collection(
-        "friends").doc(fEmail)
         .set({
       'femail': fEmail, 'fname': fName, 'fowes'
           : fOwes, 'fowed': fOwed

@@ -28,7 +28,7 @@ class _FriendsState extends State<Friends> {
           children: <Widget>[
 
             Padding(
-              padding: EdgeInsets.only(top: 16, left: 16, right: 16),
+              padding: EdgeInsets.only(top: 50, left: 16, right: 16),
               child: Opacity(
                 opacity: 0.5,
                 child: TextField(

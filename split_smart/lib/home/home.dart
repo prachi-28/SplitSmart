@@ -5,6 +5,7 @@ import 'package:split_smart/services/auth.dart';
 import 'package:split_smart/friends/friends_page.dart';
 import 'package:split_smart/groups/groups_page.dart';
 import 'package:split_smart/friends/add_friend.dart';
+import 'package:split_smart/profile/userProfile.dart';
 
 class Home extends StatelessWidget {
 
@@ -23,28 +24,20 @@ class _Home_StatefulState extends State<Home_Stateful> {
 
   final AuthService _auth = AuthService();
   int _currentIndex = 0;
-  final List<Widget> _children = [Friends(), Groups(), ];
-  final List<IconData> _floatingIcon = [Icons.person_add, Icons.group_add];
+  final List<Widget> _children = [Friends(), Groups(), Profile()];
+  final List<IconData> _floatingIcon = [Icons.person_add, Icons.group_add, Icons.logout];
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       //backgroundColor: Colors.grey,
 
-      appBar: AppBar(
+      /*appBar: AppBar(
         //backgroundColor: Colors.blueGrey,
         elevation: 0.0,
         title: Text('Welcome'),
-        actions: [
-          FlatButton.icon(
-            onPressed: () async {
-              await _auth.signOut();
-            },
-            icon: Icon(Icons.person),
-            label: Text('Logout'),
-          ),
-        ],
-      ),
+
+      ),*/
       body: _children[_currentIndex],
       floatingActionButton: FloatingActionButton(
         onPressed: () {
@@ -54,6 +47,10 @@ class _Home_StatefulState extends State<Home_Stateful> {
                 context,
                 MaterialPageRoute(builder: (context) => AddFriends()),
               );
+            }
+            else if(_currentIndex == 2) {
+
+                 _auth.signOut();
             }
           });
           // Add your onPressed code here!
