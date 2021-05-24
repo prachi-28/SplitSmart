@@ -48,8 +48,8 @@ class CreateFriendService {
         .instance
         .collection('users')
         .doc(docID)
-        .collection(
-        "friends").doc(fEmail)
+        .collection("friends")
+        .doc(fEmail)
         .set({
       'femail': fEmail, 'fname': fName, 'fowes'
           : fOwes, 'fowed': fOwed
@@ -61,7 +61,7 @@ class CreateFriendService {
 
   findUser(String searchValue) {
     //print(_docID.getEmail());
-    String docID = user.email;
+    String docID = searchValue;
     _firestore
         .collection('users')
         .doc(searchValue)
@@ -86,7 +86,9 @@ class CreateFriendService {
     FirebaseFirestore
         .instance
         .collection('users')
-        .doc(docID)
+        .doc(user.email)
+        .collection('friends')
+        .doc(fEmail)
         .set({
       'femail': fEmail, 'fname': fName, 'fowes'
           : fOwes, 'fowed': fOwed

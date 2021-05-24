@@ -9,7 +9,7 @@ import 'friends_page.dart';
 import 'package:split_smart/services/auth.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'getFriendEmail.dart';
-
+import 'package:hexcolor/hexcolor.dart';
 
 // to access current user email
 final FirebaseAuth auth = FirebaseAuth.instance;
@@ -63,7 +63,7 @@ class _addTransactionFriendState extends State<addTransactionFriend> {
                 child: Text(
                     'Splitting with',
                     style: TextStyle(
-                        color: Colors.black,
+                        //color: Colors.black,
                         fontSize: 18.0,
                     ),
                   ),
@@ -76,7 +76,7 @@ class _addTransactionFriendState extends State<addTransactionFriend> {
               child: Text(
                 '${widget.email}',
                 style: TextStyle(
-                  color: Colors.black,
+                  color: HexColor("#e16428"),
                   fontSize: 24.0,
                 ),
               ),
@@ -88,7 +88,11 @@ class _addTransactionFriendState extends State<addTransactionFriend> {
              Align(
                alignment: Alignment.center,
                child: DropdownButton(
-                hint: Text('Paid by'),
+                hint: Text('Paid by',
+                  style: TextStyle(
+                    color: HexColor("#FFFFFF"),
+                  ),
+                ),
                 value: _selectedEmail,
                 onChanged: (newValue) {
                   setState(() {
@@ -116,7 +120,7 @@ class _addTransactionFriendState extends State<addTransactionFriend> {
                   child: TextField(
                     controller: desc,
                     decoration: new InputDecoration(
-                      icon: new Icon(Icons.assignment_sharp),
+                      icon: new Icon(Icons.assignment_sharp,color: Colors.white,),
                       labelText: "Enter Description",
                       enabledBorder: const OutlineInputBorder(
                         borderRadius: BorderRadius.all(Radius.circular(5.0)),
@@ -142,7 +146,7 @@ class _addTransactionFriendState extends State<addTransactionFriend> {
                   child: TextField(
                     controller: amount,
                     decoration: new InputDecoration(
-                      icon: new Icon(Icons.attach_money),
+                      icon: new Icon(Icons.attach_money,color: Colors.white),
                       labelText: "Enter Amount",
                       enabledBorder: const OutlineInputBorder(
                         borderRadius: BorderRadius.all(Radius.circular(5.0)),

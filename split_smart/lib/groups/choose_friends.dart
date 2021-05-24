@@ -138,7 +138,7 @@ class _ChooseFriendsClassState extends State<ChooseFriendsClass> {
                         padding: EdgeInsets.only(top:2.0),
                         child: Text(
                           '${doc.data()['fname']}',
-                          style: TextStyle(color: Colors.black87,
+                          style: TextStyle(color: Colors.white,
                               fontSize: 17.0),
                         ),
                         alignment: Alignment.centerLeft,
@@ -147,7 +147,7 @@ class _ChooseFriendsClassState extends State<ChooseFriendsClass> {
                       Container(
                         child: Text(
                           'Email ID: ${doc.data()['femail']}',
-                          style: TextStyle(color: Colors.black26,
+                          style: TextStyle(color: Colors.white,
                               fontSize: 12.0),
                         ),
                         alignment: Alignment.centerLeft,

@@ -36,12 +36,13 @@ class _MakeGroupState extends State<MakeGroup> {
         title: Text('Make Group'),
       ),*/
       body: Container(
-        padding: EdgeInsets.only(top:30.0),
+        padding: EdgeInsets.only(top:10.0),
         child: Column(
           mainAxisAlignment: MainAxisAlignment.start,
           crossAxisAlignment: CrossAxisAlignment.center,
           children: <Widget>[
-            Padding(
+
+            /*Padding(
               padding: EdgeInsets.only(top: 16, left: 16, right: 16),
               child: Opacity(
                 opacity: 0.5,
@@ -68,15 +69,16 @@ class _MakeGroupState extends State<MakeGroup> {
                   ),
                 ),
               ),
-            ),
+            ),*/
             Padding(
-              padding: EdgeInsets.only(top: 16, left: 16, right: 16),
+              padding: EdgeInsets.only(top: 55, left: 16, right: 16),
               child: TextField(
                 decoration: InputDecoration(
                   //border: OutlineInputBorder(),
                   contentPadding: EdgeInsets.all(8),
                   //labelText: 'Group Name',
                   hintText: 'Enter Group Name',
+                  hintStyle: TextStyle(color: Colors.white),
                 ),
                 onChanged: (text) {
                   _groupName = text;

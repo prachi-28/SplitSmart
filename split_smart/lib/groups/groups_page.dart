@@ -20,52 +20,54 @@ class _GroupsState extends State<Groups> {
 
   @override
   Widget build(BuildContext context) {
-    return Center(
-      //color: Colors.red,
-      child: Column(
-          mainAxisAlignment: MainAxisAlignment.start,
-          crossAxisAlignment: CrossAxisAlignment.center,
-          children: <Widget>[
-            Padding(
-              padding: EdgeInsets.only(top: 16, left: 16, right: 16),
-              child: Opacity(
-                opacity: 0.5,
-                child: TextField(
-                  decoration: InputDecoration(
-                    hintText: "Search...",
-                    hintStyle: TextStyle(color: Colors.grey.shade600),
-                    prefixIcon: Icon(
-                      Icons.search,
-                      color: Colors.grey.shade600,
-                      size: 20,
+    return SingleChildScrollView(
+      child: Center(
+        //color: Colors.red,
+        child: Column(
+            mainAxisAlignment: MainAxisAlignment.start,
+            crossAxisAlignment: CrossAxisAlignment.center,
+            children: <Widget>[
+              /*Padding(
+                padding: EdgeInsets.only(top: 16, left: 16, right: 16),
+                child: Opacity(
+                  opacity: 0.5,
+                  child: TextField(
+                    decoration: InputDecoration(
+                      hintText: "Search...",
+                      hintStyle: TextStyle(color: Colors.grey.shade600),
+                      prefixIcon: Icon(
+                        Icons.search,
+                        color: Colors.grey.shade600,
+                        size: 20,
+                      ),
+                      filled: true,
+                      fillColor: Colors.grey.shade100,
+                      contentPadding: EdgeInsets.all(8),
+                      enabledBorder: OutlineInputBorder(
+                          borderRadius: BorderRadius.circular(20),
+                          borderSide: BorderSide(color: Colors.grey.shade100)),
                     ),
-                    filled: true,
-                    fillColor: Colors.grey.shade100,
-                    contentPadding: EdgeInsets.all(8),
-                    enabledBorder: OutlineInputBorder(
-                        borderRadius: BorderRadius.circular(20),
-                        borderSide: BorderSide(color: Colors.grey.shade100)),
                   ),
                 ),
+              ),*/
+              Padding(
+                padding: EdgeInsets.all(20.0),
+                child: Container(
+                  height: 75,
+                  child: DivisionBarClass(),
+                )
               ),
-            ),
-            Padding(
-              padding: EdgeInsets.all(20.0),
-              child: Container(
-                height: 75,
-                child: DivisionBarClass(),
-              )
-            ),
-            Padding(
-              padding: EdgeInsets.all(20.0),
-              child:
-                  Container(
-                      child: _read.readGroups(),
-                      height: 450,
-                      width: 500,
-                  ),
-            ),
-          ]),
+              Padding(
+                padding: EdgeInsets.all(20.0),
+                child:
+                    Container(
+                        child: _read.readGroups(),
+                        height: 450,
+                        width: 500,
+                    ),
+              ),
+            ]),
+      ),
     );
   }
 }

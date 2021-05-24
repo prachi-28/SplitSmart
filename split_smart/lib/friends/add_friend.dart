@@ -23,9 +23,9 @@ class _AddFriendsState extends State<AddFriends> {
   }
 
   // to find the current user's email
-  /*final FirebaseAuth auth = FirebaseAuth.instance;
+  final FirebaseAuth auth = FirebaseAuth.instance;
   User user = FirebaseAuth.instance.currentUser;
-  String currUser;*/
+  String currUser;
 
   @override
   Widget build(BuildContext context) {

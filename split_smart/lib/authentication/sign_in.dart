@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:split_smart/services/auth.dart';
 import 'package:split_smart/models/user.dart';
+import 'package:hexcolor/hexcolor.dart';
 
 class SignIn extends StatefulWidget {
   final Function toggleView;
@@ -22,7 +23,7 @@ class _SignInState extends State<SignIn> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.white,
+      //backgroundColor: Colors.white,
 
       appBar: AppBar(
         //backgroundColor: Colors.blueGrey,
@@ -124,7 +125,7 @@ class _SignInState extends State<SignIn> {
                   child: Text(
                     'Sign in with Google',
                     style: TextStyle(
-                        color: Colors.pink,
+                        color: HexColor("#e16428"),
                     ),
                   ),
                   onPressed: () async {
@@ -157,13 +158,13 @@ class _SignInState extends State<SignIn> {
                     widget.toggleView();
                   },
                   style: ElevatedButton.styleFrom(
-                    primary: Colors.white,
+                    primary: HexColor("#363333"),
                     elevation: 0,
                   ),
                   child: Text(
                     'New User? Sign Up!',
                     style: TextStyle(
-                      color: Colors.black,
+                      color: HexColor("#e16428"),
                     ),
                   ),
 

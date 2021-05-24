@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:split_smart/services/auth.dart';
 import 'package:split_smart/services/createuser.dart';
+import 'package:hexcolor/hexcolor.dart';
 
 class Register extends StatefulWidget {
   final Function toggleView;
@@ -24,7 +25,7 @@ class _RegisterState extends State<Register> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.white,
+      //backgroundColor: Colors.white,
       appBar: AppBar(
 
         elevation: 0.0,
@@ -107,7 +108,7 @@ class _RegisterState extends State<Register> {
                 width: 300,
                 child: ElevatedButton(
                   style: ElevatedButton.styleFrom(
-                    primary: Colors.pink,
+                    //primary: Colors.pink,
                   ),
                   //color: Colors.blueGrey,
                   child: Text(
@@ -144,13 +145,13 @@ class _RegisterState extends State<Register> {
                   widget.toggleView();
                 },
                 style: ElevatedButton.styleFrom(
-                  primary: Colors.white,
+                  primary: HexColor("#363333"),
                   elevation: 0,
                 ),
                 child: Text(
                   'Already have an account? Log In!',
                   style: TextStyle(
-                    color: Colors.black,
+                    color: HexColor("#e16428"),
                   ),
                 ),
               ),

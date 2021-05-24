@@ -2,6 +2,8 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:split_smart/services/auth.dart';
+import 'package:hexcolor/hexcolor.dart';
 
 class Profile extends StatefulWidget {
   @override
@@ -9,6 +11,7 @@ class Profile extends StatefulWidget {
 }
 
 class _ProfileState extends State<Profile> {
+  final AuthService _auth = AuthService();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -23,8 +26,8 @@ class _ProfileState extends State<Profile> {
                 child: Text('Profile',
                     //textAlign: TextAlign.center,
                     style: TextStyle(
-                      color: Colors.black,
-                      fontSize: 18.0,
+                      color: Colors.white,
+                      fontSize: 20.0,
                     )
                 ),
               ),
@@ -65,7 +68,7 @@ class _ProfileState extends State<Profile> {
                     child: Text(
                       'My Profile',
                       style: TextStyle(
-                        color: Colors.black,
+                        color: Colors.white,
                       ),
                     ),
                 ),
@@ -77,7 +80,7 @@ class _ProfileState extends State<Profile> {
                   child: Text(
                     'Settings',
                     style: TextStyle(
-                      color: Colors.black,
+                      color: Colors.white,
                     ),
                   ),
                 ),
@@ -89,19 +92,21 @@ class _ProfileState extends State<Profile> {
                   child: Text(
                     'Notifications',
                     style: TextStyle(
-                      color: Colors.black,
+                      color: Colors.white,
                     ),
                   ),
                 ),
 
                 FlatButton(
-                  onPressed: () {},
+                  onPressed: () {
+                    _auth.signOut();
+                  },
                   // padding: EdgeInsets.all(20),
                   shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(15)),
                   child: Text(
                     'Logout',
                     style: TextStyle(
-                      color: Colors.black,
+                      color: HexColor("#e16428"),
                     ),
                   ),
                 ),

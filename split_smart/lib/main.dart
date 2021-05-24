@@ -16,10 +16,11 @@ void main() async {
 class MyApp extends StatelessWidget {
   /*String _darkColour = "#0F1D2E";
   String _lightColour = "#E7DDC7";*/
-  String _contrastColour = "#917A97";
+  String _contrastColour = "#e16428"; // orange-ish
 
-  String _darkColour = "#282829";
-  String _lightColour = "#E7DDC7";
+  String _darkColour = "#272121";
+  String _lightColour = "#363333"; // lighter shade of black
+  String _textColour = "#FFFFFF";
   //String _contrastColour = "#e880ff";
   //String _contrastColour = "#893091";
 
@@ -48,6 +49,8 @@ class MyApp extends StatelessWidget {
             buttonColor: HexColor(_darkColour),
             textTheme: ButtonTextTheme.accent,
           ),
+
+
           /*textTheme: TextTheme(
             button: TextStyle(
               color: HexColor(_darkColour),
@@ -66,8 +69,8 @@ class MyApp extends StatelessWidget {
             )
           ),*/
           textTheme: Theme.of(context).textTheme.apply(
-            bodyColor: HexColor(_darkColour),
-            displayColor: HexColor(_darkColour),
+            bodyColor: HexColor(_textColour),
+            displayColor: HexColor(_textColour),
           ),
           floatingActionButtonTheme: FloatingActionButtonThemeData(
             backgroundColor: HexColor(_contrastColour),
@@ -75,13 +78,16 @@ class MyApp extends StatelessWidget {
           ),
           elevatedButtonTheme: ElevatedButtonThemeData(
             style: ElevatedButton.styleFrom(
-              primary: HexColor(_darkColour),
+              primary: HexColor(_contrastColour),
               onPrimary: HexColor(_lightColour),
             ),
           ),
           inputDecorationTheme: InputDecorationTheme(
+            labelStyle: TextStyle(color: Colors.white),
+            hintStyle: TextStyle(color: Colors.grey),
             focusedBorder: OutlineInputBorder(
               borderSide: BorderSide(color: HexColor(_darkColour), width: 1.5),
+
             ),
           ),
           checkboxTheme: CheckboxThemeData(
