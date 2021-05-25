@@ -87,25 +87,35 @@ class _addTransactionFriendState extends State<addTransactionFriend> {
 
              Align(
                alignment: Alignment.center,
-               child: DropdownButton(
-                hint: Text('Paid by',
-                  style: TextStyle(
-                    color: HexColor("#FFFFFF"),
-                  ),
+               child: Theme(
+                 data: new ThemeData(
+                  canvasColor: Colors.black54,
                 ),
-                value: _selectedEmail,
-                onChanged: (newValue) {
-                  setState(() {
-                    _selectedEmail = newValue;
-                  });
-                },
-                items: _emails.map((e) {
-                  return DropdownMenuItem(
-                    child: new Text(e),
-                    value: e,
-                  );
-                }).toList(),
+                 child: DropdownButton(
+
+                  hint: Text('Paid by',
+                    style: TextStyle(
+                      color: HexColor("#FFFFFF"),
+                    ),
+                  ),
+                  value: _selectedEmail,
+                  onChanged: (newValue) {
+                    setState(() {
+                      _selectedEmail = newValue;
+                    });
+                  },
+                  items: _emails.map((e) {
+                    return DropdownMenuItem(
+                      child: new Text(e,
+                        style: TextStyle(
+                          color: HexColor("#FFFFFF"),
+                        ),
+                      ),
+                      value: e,
+                    );
+                  }).toList(),
             ),
+               ),
              ),
 
 
