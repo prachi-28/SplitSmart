@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:split_smart/services/auth.dart';
 import 'package:split_smart/models/user.dart';
 import 'package:hexcolor/hexcolor.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 
 class SignIn extends StatefulWidget {
   final Function toggleView;
@@ -24,6 +25,7 @@ class _SignInState extends State<SignIn> {
   Widget build(BuildContext context) {
     return Scaffold(
       //backgroundColor: Colors.white,
+      resizeToAvoidBottomInset: false,
 
       appBar: AppBar(
         //backgroundColor: Colors.blueGrey,
@@ -42,9 +44,11 @@ class _SignInState extends State<SignIn> {
                 padding: EdgeInsets.only(top: 50.0),
                 child: Center(
                   child: Container(
-                    width: 200,
+                    width: 500,
                     height: 110,
-                    child: Image.asset('images/login.jpg'),
+                    child: SvgPicture.asset(
+                      "images/login.svg",
+                    ),
                   ),
                 ),
               ),

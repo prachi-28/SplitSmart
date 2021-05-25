@@ -47,9 +47,12 @@ dependencies:
   google_sign_in: ^4.5.9
   fluttertoast: ^8.0.7
   angles: ^2.1.0
+  flutter_launcher_icons: ^0.8.1
 
-
-
+flutter_icons:
+  image_path: "images/icon.png"
+  android: true
+  ios: true
 
 dev_dependencies:
   flutter_test:

@@ -5,6 +5,7 @@ import 'package:hexcolor/hexcolor.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:split_smart/friends/read_users.dart';
 import 'package:split_smart/friends/friendDivisionBar.dart';
+import 'package:hexcolor/hexcolor.dart';
 
 class Friends extends StatefulWidget {
   @override
@@ -25,7 +26,27 @@ class _FriendsState extends State<Friends> {
             mainAxisAlignment: MainAxisAlignment.start,
             crossAxisAlignment: CrossAxisAlignment.center,
             children: <Widget>[
-
+              Padding(
+                padding: EdgeInsets.only(top: 16, left: 16, right: 16),
+                child: Text(
+                  'Welcome to ',
+                  style: TextStyle(
+                    color: Colors.white,
+                    fontSize: 25,
+                  ),
+                ),
+              ),
+              Padding(
+                padding: EdgeInsets.only(top: 10, left: 16, right: 16),
+                child: Text(
+                  'SplitSmart',
+                  style: TextStyle(
+                    color: HexColor("#e16428"),
+                    fontSize: 35,
+                  ),
+                ),
+              )
+              ,
               /*Padding(
                 padding: EdgeInsets.only(top: 16, left: 16, right: 16),
                 child: Opacity(
