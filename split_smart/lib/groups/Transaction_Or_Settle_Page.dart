@@ -77,7 +77,7 @@ class _GroupMiddlePageState extends State<GroupMiddlePage> {
                     }
                 ),
               ),
-              Container(
+              /*Container(
                 child: ElevatedButton(
                     child: Text(
                       'Settle Up',
@@ -91,7 +91,7 @@ class _GroupMiddlePageState extends State<GroupMiddlePage> {
                       );*/
                     }
                 ),
-              ),
+              ),*/
             ],
           ),
         ),

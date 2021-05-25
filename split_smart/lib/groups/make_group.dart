@@ -31,10 +31,10 @@ class _MakeGroupState extends State<MakeGroup> {
   Widget build(BuildContext context) {
     return Scaffold(
       resizeToAvoidBottomInset: false,
-      /*appBar: AppBar(
+      appBar: AppBar(
         elevation: 0.0,
         title: Text('Make Group'),
-      ),*/
+      ),
       body: Container(
         padding: EdgeInsets.only(top:10.0),
         child: Column(
@@ -89,7 +89,7 @@ class _MakeGroupState extends State<MakeGroup> {
             Padding(
               padding: EdgeInsets.only(left: 20, right: 20, bottom: 20),
               child: Container(
-                height: (MediaQuery.of(context).size.height - 250),
+                height: (MediaQuery.of(context).size.height - 300),
                 width: 500,
                 //color: Colors.blue,
                 //child: Flexible(
